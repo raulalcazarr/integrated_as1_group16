@@ -1,0 +1,4 @@
+pandas>=3.0.1
+matplotlib>=3.10.6
+pypsa>=1.1.2
+jupyter>=1.1.1
