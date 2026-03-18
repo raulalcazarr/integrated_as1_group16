@@ -30,45 +30,6 @@ def download_data():
         print("     https://data.open-power-system-data.org/time_series/2020-10-06/time_series_60min_singleindex.csv")
         return False
     
-    try:
-        # Download solar data from Renewables Ninja
-        print("\n[2/3] Downloading solar data...")
-        url_solar = "https://www.renewables.ninja/country_downloads/IE/ninja-pv-country-IE-national-merra2.csv"
-        
-        df_solar = pd.read_csv(url_solar)
-        df_solar.to_csv("data/Ireland_En_DH/ninja-pv-country-IE-national-merra2.csv", index=False)
-        print("     ✓ Solar data downloaded")
-        
-    except Exception as e:
-        print(f"     ✗ Error downloading solar: {e}")
-        print("     Note: Renewables Ninja may require API key registration")
-        print("     Visit: https://www.renewables.ninja/")
-    
-    try:
-        # Download onshore wind data from Renewables Ninja
-        print("\n[3/3] Downloading onshore wind data...")
-        url_windo = "https://www.renewables.ninja/country_downloads/IE/ninja-wind-country-IE-current_onshore-merra2.csv"
-        df_windo = pd.read_csv(url_windo)
-        df_windo.to_csv("data/Ireland_En_DH/ninja-wind-country-IE-current_onshore-merra2.csv", index=False)
-        print("     ✓ Onshore wind data downloaded")
-        
-    except Exception as e:
-        print(f"     ✗ Error downloading wind: {e}")
-        print("     Note: Renewables Ninja may require API key registration")
-        print("     Visit: https://www.renewables.ninja/")
-        
-    try:
-        # Download offshore wind data from Renewables Ninja
-        print("\n[3/3] Downloading offshore wind data...")
-        url_wind = "https://www.renewables.ninja/country_downloads/IE/ninja-wind-country-IE-current_offshore-merra2.csv"
-        df_wind = pd.read_csv(url_wind)
-        df_wind.to_csv("data/Ireland_En_DH/ninja-wind-country-IE-current_offshore-merra2.csv", index=False)
-        print("     ✓ Offshore wind data downloaded")
-        
-    except Exception as e:
-        print(f"     ✗ Error downloading wind: {e}")
-        print("     Note: Renewables Ninja may require API key registration")
-        print("     Visit: https://www.renewables.ninja/")
     
     print("\n" + "=" * 60)
     print("✓ DATA DOWNLOAD COMPLETED")
