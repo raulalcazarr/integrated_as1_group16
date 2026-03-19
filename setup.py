@@ -16,12 +16,23 @@ def download_data():
     print("DOWNLOADING PROJECT DATA")
     print("=" * 60)
     
+    # Check if demand data already exists
+    demand_file = "data/Load/time_series_60min_singleindex.csv"
+    
+    if os.path.exists(demand_file):
+        print("\n[1/1] Checking demand data...")
+        print(f"     ✓ Demand data already exists: {demand_file}")
+        print("\n" + "=" * 60)
+        print("✓ DATA ALREADY DOWNLOADED")
+        print("=" * 60)
+        return True
+    
     try:
         # Download electricity demand data
-        print("\n[1/3] Downloading electricity demand (this takes ~5 minutes)...")
+        print("\n[1/1] Downloading electricity demand (this takes ~5 minutes)...")
         url_demand = "https://data.open-power-system-data.org/time_series/2020-10-06/time_series_60min_singleindex.csv"
         df_demand = pd.read_csv(url_demand)
-        df_demand.to_csv("data/Load/time_series_60min_singleindex.csv", index=False)
+        df_demand.to_csv(demand_file, index=False)
         print("     ✓ Demand data downloaded (125 MB)")
         
     except Exception as e:
@@ -29,7 +40,6 @@ def download_data():
         print("     Please download manually from:")
         print("     https://data.open-power-system-data.org/time_series/2020-10-06/time_series_60min_singleindex.csv")
         return False
-    
     
     print("\n" + "=" * 60)
     print("✓ DATA DOWNLOAD COMPLETED")
