@@ -10,7 +10,11 @@ def download_data():
     
     # Create data folders if they don't exist
     os.makedirs("data/Load", exist_ok=True)
-    os.makedirs("data/Ireland_En_DH", exist_ok=True)
+    os.makedirs("data/Denmark_En_DH", exist_ok=True)
+    os.makedirs("data/Germany_En_DH", exist_ok=True)
+    os.makedirs("data/Sweden_En_DH", exist_ok=True)
+    os.makedirs("data/Norway_En_DH", exist_ok=True)
+
     
     print("=" * 60)
     print("DOWNLOADING PROJECT DATA")
@@ -33,7 +37,7 @@ def download_data():
         url_demand = "https://data.open-power-system-data.org/time_series/2020-10-06/time_series_60min_singleindex.csv"
         df_demand = pd.read_csv(url_demand)
         df_demand.to_csv(demand_file, index=False)
-        print("     ✓ Demand data downloaded (125 MB)")
+        print("     ✓ Demand data downloaded")
         
     except Exception as e:
         print(f"     ✗ Error downloading demand: {e}")
