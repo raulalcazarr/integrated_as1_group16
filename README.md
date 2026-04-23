@@ -14,13 +14,6 @@ pip install -r requirements.txt
 
 3. Download demand data automatically
 
-Data of the generation is already included in the repository, 
-demand data is not included due to the size of the file, 
-but you can download it by running the following command:
-
-
-```bash
-python setup.py
-```
+Data of the generation is already included in the repository.
 
 4. Done! You can now run the analysis
